@@ -1,0 +1,12 @@
+services:
+  notebook:
+    image: martijnende/corsica2021
+    ports:
+      - "9000:9000"
+    environment:
+      - JUPYTER_TOKEN=corsica
+    volumes:
+      - corsica2021:/home
+
+volumes:
+  corsica2021:
