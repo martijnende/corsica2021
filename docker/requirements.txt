@@ -4,4 +4,6 @@ pandas
 matplotlib
 termcolor
 notebook
-
+ffmpeg-python
+sphinx
+cartopy

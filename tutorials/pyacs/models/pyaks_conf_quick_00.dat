@@ -1,0 +1,78 @@
+###############################################################################
+# SAMPLE CONFIGURATION FILE FOR PYEQ_KINEMATICS.PY
+###############################################################################
+###############################################################################
+# GENERAL PARAMETERS
+###############################################################################
+verbose = True
+debug   = False
+# np_opt : YES will stop before doing the inversion
+no_opt  = NO
+# save: YES will save normal normal system
+save    = NO 
+print_result = False
+#mpck = model_2021-05-16-17-37-15.mpck 
+name = quick_00
+###############################################################################
+# DATES
+###############################################################################
+dates = pandas.date_range(start='2021/6/1 12:00:00', end='2021/7/16 12:00:00', freq='2D')
+#dates = ./model_increasing_step.dat
+#dates = all
+rounding = day 
+###############################################################################
+# REGULARIZATION
+###############################################################################
+regularization = laplacian
+lambda_spatial_smoothing = 1.
+lambda_temporal_smoothing = 1.
+sigma = 0.
+lambda_final_spatial_smoothing = 1.
+lambda_stf = 0.
+sigma_final = 0.
+norm_resolution = False
+###############################################################################
+# PRIOR
+###############################################################################
+# prior value of slip rate - scalar or euler pole /long/lat/w in dec. deg / Myr
+m0 = 0.
+###############################################################################
+# FAULT PARAMETERS
+###############################################################################
+#input_npz = ../green_n9_input.npz
+#input_npz = ../conf/green_n8_slab2_input.npz 
+#input_npz = ../green/n09_120km_nikkhoo_input.npz
+input_npz = ../green/green_ecuador_input.npz
+#geometry_range_lon = [-83,-79] 
+#geometry_range_lat = [-1.9,-0.5] 
+#geometry_range_depth = [0,40] 
+###############################################################################
+# INPUT TIME SERIES
+###############################################################################
+dir_ts =  ../data
+up = True 
+s_up = 5. 
+s_h  = 0.
+offset = 0.
+#lexclude_gps = AM03 BAYO FOEC LJEC SALN SIEC MZEC COEC PLHA ARNS CLEC AYAN CCSQ 
+#lexclude_gps = PI01 PAEC SEEC TU01 PLEC EREC MRO2 TRPG'
+#lexclude_gps = MAEC GZEC YTZA PLEC PLEC LJEC BAYO ARNS AYAN COLI EREC MZEC COCH GUEC MRO2 SALN SIEC 
+#lexclude_gps = CXEC MLEC MHLA SLGO JPJP POEC TRPG ISPT CLEC SEEC NJEC AM03 CSEC CCSQ VNEI PI01 TU01 PJEC
+# exclude GPS site. Can be repeated
+###############################################################################
+# RAKE & SLIP
+###############################################################################
+rake_type = Euler 
+#rake_type = constant
+#rake_type = file
+rake_value = /-179.551/82.858/0.4265/inverse 
+#rake_value = 110.
+#rake_value = ./rake_2021_05_04_12_30.dat
+#rake_constraint = 3/40/30
+rake_constraint = 0
+###############################################################################
+# ALGORITHM & INVERSION OPTIONS
+###############################################################################
+nnls = nnlsm_block_pivot
+build = 5
+interseismic = 0.

@@ -1,0 +1,26 @@
+# PYEQ PLOT SETTING DEFAULTS
+ncpu            = 7
+time_series     = True
+cum_slip        = True 
+ccum_slip       = True
+rate            = True
+crate           = True
+disp_obs        = False
+disp_model      = False
+disp_residual   = False
+stf             = True 
+ts_shift        = False
+ts_min_yaxis    = 30
+ts_ofmt         = png
+map             = False
+shp_point       = None
+#shp_line        = /usr/local/geodesy/maps/afterslip_pedernales/info_4_plot/contour.shp
+#shp_line        = /usr/local/geodesy/maps/afterslip_pedernales/info_4_plot/trench_pedernales.shp
+#shp_poly        = /usr/local/geodesy/maps/afterslip_pedernales/info_4_plot/coastline_intermediate.shp
+colormap        = magma_r 
+ncolor          = 50
+slip_bounds     = [5%,None] 
+rate_bounds     = [.1,None] 
+disp_scale      = 0.01
+interpolate     = cubic
+ncontour         = 1
