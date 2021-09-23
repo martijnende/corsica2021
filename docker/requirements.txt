@@ -1,5 +1,5 @@
 pandas
-ipython==7.23.1
+ipython
 notebook
 ffmpeg-python
 sphinx

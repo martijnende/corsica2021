@@ -11,6 +11,7 @@ COPY docker/requirements.txt pyacs/pyacs-0.65.5.tar.gz pyacs/pyeq-0.54.3.tar.gz 
 RUN pip install --no-cache-dir -r requirements.txt
 RUN conda install cartopy -c conda-forge
 RUN pip install --no-cache-dir pyacs-0.65.5.tar.gz pyeq-0.54.3.tar.gz
+RUN rm pyacs-0.65.5.tar.gz pyeq-0.54.3.tar.gz
 
 RUN cd /home && git clone https://github.com/ydluo/qdyn && cd qdyn/src && make clean && make
 RUN cd /home && git clone https://github.com/martijnende/jDAS
