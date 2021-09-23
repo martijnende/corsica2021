@@ -1,10 +1,16 @@
 FROM python:3.7-slim
 
-RUN apt-get update && apt -y install gfortran libopenmpi-dev make git ffmpeg libgeos-dev libproj-dev proj-data proj-bin
+RUN apt-get update && apt -y install gfortran libopenmpi-dev make git ffmpeg wget
+
+RUN wget http://repo.anaconda.com/miniconda/Miniconda3-py37_4.10.3-Linux-x86_64.sh && bash Miniconda3-py37_4.10.3-Linux-x86_64.sh -b
+RUN echo "export PATH="/root/miniconda3/bin:$PATH"" >> ~/.bashrc && /bin/bash -c "source ~/.bashrc"
+ENV PATH /root/miniconda3/bin:$PATH
+RUN rm Miniconda3-py37_4.10.3-Linux-x86_64.sh && conda update --all
 
 COPY docker/requirements.txt pyacs/pyacs-0.65.5.tar.gz pyacs/pyeq-0.54.3.tar.gz .
-RUN pip install --no-cache-dir --use-feature=2020-resolver -r requirements.txt
-RUN pip install --no-cache-dir --use-feature=2020-resolver pyacs-0.65.5.tar.gz pyeq-0.54.3.tar.gz
+RUN pip install --no-cache-dir -r requirements.txt
+RUN conda install cartopy -c conda-forge
+RUN pip install --no-cache-dir pyacs-0.65.5.tar.gz pyeq-0.54.3.tar.gz
 
 RUN cd /home && git clone https://github.com/ydluo/qdyn && cd qdyn/src && make clean && make
 RUN cd /home && git clone https://github.com/martijnende/jDAS

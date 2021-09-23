@@ -1,10 +1,5 @@
-numpy
-scipy
 pandas
-geopandas==0.9.0
-matplotlib==3.3.4
-termcolor==1.1.0
-ipython==7.22
+ipython==7.23.1
 notebook
 ffmpeg-python
 sphinx
